@@ -5,6 +5,8 @@ A minimal, fast PostgreSQL browser for macOS.
 ![macOS](https://img.shields.io/badge/macOS-26%2B-blue)
 ![Swift](https://img.shields.io/badge/Swift-5.9-orange)
 
+![TinySQL screenshot](screenshot.png)
+
 ## Features
 
 - **Connect to PostgreSQL** — host, port, database, username, password
