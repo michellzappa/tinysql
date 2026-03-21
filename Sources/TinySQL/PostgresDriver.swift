@@ -4,8 +4,8 @@ import NIOCore
 import NIOPosix
 import Logging
 
-/// Actor wrapping PostgresNIO for safe concurrent access.
-actor DatabaseService {
+/// PostgreSQL database driver using PostgresNIO.
+actor PostgresDriver: DatabaseDriver {
     private var connection: PostgresConnection?
     private let eventLoopGroup: EventLoopGroup
     private var logger: Logger
@@ -104,16 +104,5 @@ actor DatabaseService {
             return count
         }
         return 0
-    }
-}
-
-enum DatabaseError: LocalizedError {
-    case notConnected
-
-    var errorDescription: String? {
-        switch self {
-        case .notConnected:
-            return "Not connected to a database."
-        }
     }
 }

@@ -3,7 +3,7 @@
 ## App Information
 
 - **App Name**: TinySQL
-- **Subtitle** (30 chars max): A simple PostgreSQL browser
+- **Subtitle** (30 chars max): A fast PostgreSQL browser
 - **Bundle ID**: com.tinysql.app
 - **SKU**: tinysql-001
 - **Primary Language**: English (U.S.)
@@ -31,12 +31,15 @@ Features:
 - Multiple connection support
 - Pure Swift implementation — no PostgreSQL drivers or C libraries required
 - Light and dark mode — follows your system
+- On-device AI assistant (Cmd+K) — ask questions about your data. Runs fully on-device via CoreML, no API key required
 
 Built entirely with native macOS technologies and PostgresNIO for database communication. No Electron. No JVM. Connects directly to your database with zero configuration overhead.
 
+Part of TinySuite — a family of native macOS micro-tools that each do one thing well. Every app is built around the file, not around itself. No accounts, no cloud, no lock-in. Open your file, understand it, act on it. Learn more at tinysuite.app.
+
 ### Keywords (100 chars max, comma-separated)
 
-postgresql,database,sql,browser,table,viewer,developer,postgres,data,query
+postgresql,database,sql,browser,table,viewer,developer,postgres,tinysuite,query
 
 ### What's New (Version 1.0.0)
 
@@ -52,14 +55,11 @@ https://github.com/michellzappa/tinysql/issues
 
 ### Marketing URL (optional)
 
-https://github.com/michellzappa/tinysql
+https://tinysuite.app
 
 ### Privacy Policy URL (required)
 
-<!-- You need a privacy policy URL even if the app collects no data. -->
-<!-- Example: https://michellzappa.github.io/tinysql/privacy -->
-
-TODO: Create a simple privacy policy page stating the app collects no data.
+https://tinysuite.app/privacy.html
 
 ## Privacy Details
 

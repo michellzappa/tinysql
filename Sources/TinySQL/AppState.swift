@@ -1,14 +1,26 @@
 import Foundation
 import NIOPosix
 
+enum ConnectionType: String, CaseIterable {
+    case postgres = "PostgreSQL"
+    case sqlite = "SQLite"
+}
+
 @Observable
 final class AppState {
-    // Connection parameters
+    // Connection type
+    var connectionType: ConnectionType = .postgres
+
+    // PostgreSQL connection parameters
     var host: String = "localhost"
     var port: Int = 5432
     var database: String = ""
     var username: String = ""
     var password: String = ""
+
+    // SQLite connection parameters
+    var sqliteFilePath: String = ""
+    var sqliteBookmark: Data?
 
     // Connection state
     var isConnected: Bool = false
@@ -32,12 +44,29 @@ final class AppState {
 
     // Internal
     private let eventLoopGroup: MultiThreadedEventLoopGroup
-    private let db: DatabaseService
+    private let postgresDriver: PostgresDriver
+    private var sqliteDriver: SQLiteDriver?
+
+    /// The currently active driver.
+    private var activeDriver: (any DatabaseDriver)? {
+        switch connectionType {
+        case .postgres: return postgresDriver
+        case .sqlite: return sqliteDriver
+        }
+    }
+
+    /// Display name for the current connection (used in window title).
+    var connectionDisplayName: String {
+        switch connectionType {
+        case .postgres: return database
+        case .sqlite: return (sqliteFilePath as NSString).lastPathComponent
+        }
+    }
 
     init() {
         let elg = MultiThreadedEventLoopGroup(numberOfThreads: 1)
         self.eventLoopGroup = elg
-        self.db = DatabaseService(eventLoopGroup: elg)
+        self.postgresDriver = PostgresDriver(eventLoopGroup: elg)
     }
 
     deinit {
@@ -52,13 +81,20 @@ final class AppState {
         error = nil
 
         do {
-            try await db.connect(
-                host: host,
-                port: port,
-                database: database,
-                username: username,
-                password: password
-            )
+            switch connectionType {
+            case .postgres:
+                try await postgresDriver.connect(
+                    host: host,
+                    port: port,
+                    database: database,
+                    username: username,
+                    password: password
+                )
+            case .sqlite:
+                let driver = SQLiteDriver()
+                try await driver.connect(path: sqliteFilePath)
+                self.sqliteDriver = driver
+            }
             isConnected = true
             await fetchTables()
             saveLastConnection()
@@ -70,7 +106,12 @@ final class AppState {
     }
 
     func disconnect() async {
-        await db.disconnect()
+        if let driver = activeDriver {
+            await driver.disconnect()
+        }
+        if connectionType == .sqlite {
+            sqliteDriver = nil
+        }
         isConnected = false
         tables = []
         selectedTable = nil
@@ -83,8 +124,9 @@ final class AppState {
     // MARK: - Queries
 
     func fetchTables() async {
+        guard let driver = activeDriver else { return }
         do {
-            tables = try await db.fetchTables()
+            tables = try await driver.fetchTables()
         } catch {
             self.error = error.localizedDescription
         }
@@ -98,13 +140,13 @@ final class AppState {
     }
 
     func fetchTableData() async {
-        guard let table = selectedTable else { return }
+        guard let table = selectedTable, let driver = activeDriver else { return }
         isLoading = true
         error = nil
 
         let start = CFAbsoluteTimeGetCurrent()
         do {
-            let result = try await db.fetchRows(table: table, limit: limit, offset: offset)
+            let result = try await driver.fetchRows(table: table, limit: limit, offset: offset)
             columns = result.columns
             rows = result.rows
             queryTime = CFAbsoluteTimeGetCurrent() - start
@@ -115,9 +157,9 @@ final class AppState {
     }
 
     func fetchRowCount() async {
-        guard let table = selectedTable else { return }
+        guard let table = selectedTable, let driver = activeDriver else { return }
         do {
-            totalRowCount = try await db.fetchCount(table: table)
+            totalRowCount = try await driver.fetchCount(table: table)
         } catch {
             // Non-critical, don't overwrite other errors
         }
@@ -150,13 +192,25 @@ final class AppState {
     // MARK: - Persistence
 
     private func saveLastConnection() {
-        UserDefaults.standard.set(host, forKey: "lastHost")
-        UserDefaults.standard.set(port, forKey: "lastPort")
-        UserDefaults.standard.set(database, forKey: "lastDatabase")
-        UserDefaults.standard.set(username, forKey: "lastUsername")
+        UserDefaults.standard.set(connectionType.rawValue, forKey: "lastConnectionType")
+        switch connectionType {
+        case .postgres:
+            UserDefaults.standard.set(host, forKey: "lastHost")
+            UserDefaults.standard.set(port, forKey: "lastPort")
+            UserDefaults.standard.set(database, forKey: "lastDatabase")
+            UserDefaults.standard.set(username, forKey: "lastUsername")
+        case .sqlite:
+            UserDefaults.standard.set(sqliteFilePath, forKey: "lastSQLitePath")
+        }
     }
 
     func restoreLastConnection() {
+        if let typeStr = UserDefaults.standard.string(forKey: "lastConnectionType"),
+           let type = ConnectionType(rawValue: typeStr) {
+            connectionType = type
+        }
+
+        // Restore PostgreSQL settings
         if let h = UserDefaults.standard.string(forKey: "lastHost"), !h.isEmpty {
             host = h
         }
@@ -167,6 +221,11 @@ final class AppState {
         }
         if let u = UserDefaults.standard.string(forKey: "lastUsername") {
             username = u
+        }
+
+        // Restore SQLite settings
+        if let path = UserDefaults.standard.string(forKey: "lastSQLitePath") {
+            sqliteFilePath = path
         }
     }
 }

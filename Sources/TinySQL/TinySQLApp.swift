@@ -11,7 +11,7 @@ struct TinySQLApp: App {
         WindowGroup {
             ContentView(state: state, columnVisibility: $columnVisibility)
                 .navigationTitle(state.isConnected
-                    ? "\(state.database) — TinySQL"
+                    ? "\(state.connectionDisplayName) — TinySQL"
                     : "TinySQL")
                 .frame(minWidth: 700, minHeight: 500)
                 .onAppear {
@@ -23,9 +23,9 @@ struct TinySQLApp: App {
                 .welcomeSheet(
                     isPresented: $showWelcome,
                     appName: "TinySQL",
-                    subtitle: "A tiny PostgreSQL viewer.",
+                    subtitle: "A tiny SQL database viewer.",
                     features: [
-                        (icon: "server.rack", title: "Connect", description: "Connect to any PostgreSQL database"),
+                        (icon: "server.rack", title: "Connect", description: "PostgreSQL and SQLite support"),
                         (icon: "tablecells", title: "Browse Tables", description: "View all tables in your database"),
                         (icon: "magnifyingglass", title: "Preview Data", description: "See table contents with sorting"),
                         (icon: "bolt.horizontal", title: "Fast & Native", description: "Pure Swift connection, no drivers needed"),

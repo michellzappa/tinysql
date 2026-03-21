@@ -19,7 +19,7 @@ struct TableListView: View {
                 ContentUnavailableView {
                     Label("No Tables", systemImage: "tablecells")
                 } description: {
-                    Text("No public tables found in this database.")
+                    Text("No tables found in this database.")
                 }
             }
         }
