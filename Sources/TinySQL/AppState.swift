@@ -204,6 +204,16 @@ final class AppState {
         }
     }
 
+    func openSQLiteFile(_ url: URL) async {
+        await disconnect()
+        connectionType = .sqlite
+        sqliteFilePath = url.path
+        await connect()
+        if let first = tables.first {
+            await selectTable(first)
+        }
+    }
+
     func restoreLastConnection() {
         if let typeStr = UserDefaults.standard.string(forKey: "lastConnectionType"),
            let type = ConnectionType(rawValue: typeStr) {

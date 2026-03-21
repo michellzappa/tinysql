@@ -3,6 +3,7 @@ import TinyKit
 
 @main
 struct TinySQLApp: App {
+    @NSApplicationDelegateAdaptor(TinyAppDelegate.self) private var appDelegate
     @State private var state = AppState()
     @State private var columnVisibility: NavigationSplitViewVisibility = .automatic
     @State private var showWelcome = false
@@ -15,7 +16,16 @@ struct TinySQLApp: App {
                     : "TinySQL")
                 .frame(minWidth: 700, minHeight: 500)
                 .onAppear {
-                    state.restoreLastConnection()
+                    if let file = TinyAppDelegate.pendingFiles.first {
+                        TinyAppDelegate.pendingFiles.removeAll()
+                        Task { await state.openSQLiteFile(file) }
+                    } else {
+                        state.restoreLastConnection()
+                    }
+                    TinyAppDelegate.onOpenFiles = { [weak state] urls in
+                        guard let state, let url = urls.first else { return }
+                        Task { await state.openSQLiteFile(url) }
+                    }
                     if WelcomeState.isFirstLaunch {
                         showWelcome = true
                     }
