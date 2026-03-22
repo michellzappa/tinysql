@@ -24,10 +24,27 @@ targets:
         buildPhase: resources
       - path: Sources/TinySQL/Resources/AppIcon.icon
         buildPhase: resources
+      - path: Sources/TinySQL/Resources/DocIcons
+        buildPhase: resources
     info:
       path: Sources/TinySQL/Info.plist
       properties:
         LSApplicationCategoryType: public.app-category.developer-tools
+        CFBundleDocumentTypes:
+          - CFBundleTypeName: SQLite Database
+            CFBundleTypeRole: Viewer
+            LSHandlerRank: Default
+            CFBundleTypeIconFile: doc_db
+            CFBundleTypeExtensions:
+              - db
+              - sqlite
+              - sqlite3
+          - CFBundleTypeName: SQL Script
+            CFBundleTypeRole: Viewer
+            LSHandlerRank: Alternate
+            CFBundleTypeIconFile: doc_sql
+            CFBundleTypeExtensions:
+              - sql
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.tinysql.app

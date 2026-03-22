@@ -38,6 +38,8 @@ struct ContentView: View {
                             .foregroundStyle(.secondary)
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
                     }
+                } else if state.sqlFilePath != nil {
+                    SQLFileView(state: state)
                 } else {
                     ConnectionView(state: state)
                 }

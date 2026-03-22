@@ -22,6 +22,10 @@ final class AppState {
     var sqliteFilePath: String = ""
     var sqliteBookmark: Data?
 
+    // SQL file viewer
+    var queryText: String = ""
+    var sqlFilePath: String?
+
     // Connection state
     var isConnected: Bool = false
     var isConnecting: Bool = false
@@ -202,6 +206,18 @@ final class AppState {
         case .sqlite:
             UserDefaults.standard.set(sqliteFilePath, forKey: "lastSQLitePath")
         }
+    }
+
+    func openSQLFile(_ url: URL) {
+        let accessing = url.startAccessingSecurityScopedResource()
+        defer { if accessing { url.stopAccessingSecurityScopedResource() } }
+        do {
+            queryText = try String(contentsOf: url, encoding: .utf8)
+        } catch {
+            self.error = error.localizedDescription
+            queryText = ""
+        }
+        sqlFilePath = url.path
     }
 
     func openSQLiteFile(_ url: URL) async {

@@ -4,6 +4,39 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>db</string>
+				<string>sqlite</string>
+				<string>sqlite3</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>doc_db</string>
+			<key>CFBundleTypeName</key>
+			<string>SQLite Database</string>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+			<key>LSHandlerRank</key>
+			<string>Default</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>sql</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>doc_sql</string>
+			<key>CFBundleTypeName</key>
+			<string>SQL Script</string>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+			<key>LSHandlerRank</key>
+			<string>Alternate</string>
+		</dict>
+	</array>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -20,20 +53,5 @@
 	<string>1</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.developer-tools</string>
-	<key>CFBundleDocumentTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleTypeName</key>
-			<string>SQLite Database</string>
-			<key>CFBundleTypeRole</key>
-			<string>Viewer</string>
-			<key>CFBundleTypeExtensions</key>
-			<array>
-				<string>db</string>
-				<string>sqlite</string>
-				<string>sqlite3</string>
-			</array>
-		</dict>
-	</array>
 </dict>
 </plist>

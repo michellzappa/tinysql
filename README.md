@@ -1,6 +1,6 @@
 # TinySQL
 
-A minimal, fast PostgreSQL browser for macOS.
+A native macOS PostgreSQL browser. Pick a table, see its rows in a sortable grid. Pure Swift, zero dependencies, read-only by design.
 
 ![macOS](https://img.shields.io/badge/macOS-26%2B-blue)
 ![Swift](https://img.shields.io/badge/Swift-5.9-orange)
