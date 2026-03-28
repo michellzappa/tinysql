@@ -1,5 +1,12 @@
 .build/
 *.xcodeproj/
+!TinySQL.xcodeproj/
+!TinySQL.xcodeproj/project.pbxproj
+!TinySQL.xcodeproj/project.xcworkspace/
+!TinySQL.xcodeproj/project.xcworkspace/contents.xcworkspacedata
+!TinySQL.xcodeproj/xcshareddata/
+!TinySQL.xcodeproj/xcshareddata/xcschemes/
+!TinySQL.xcodeproj/xcshareddata/xcschemes/TinySQL.xcscheme
 DerivedData/
 .DS_Store
 .swiftpm/

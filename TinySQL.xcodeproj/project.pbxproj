@@ -1,0 +1,467 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		08508821CD781E6B036AFBFF /* TableListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB75842042F81532C4075270 /* TableListView.swift */; };
+		0A2DA96178823FF9F236ABA6 /* SQLFileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B12E3C36B600986D4A0182 /* SQLFileView.swift */; };
+		1BFB575670748FD5EFB2EFB6 /* TablePreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB0371748310DB4E4E8C2CA /* TablePreviewView.swift */; };
+		1D8C3F6BFBE365D6CB2F0301 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB5DB5485932151DEF8D377 /* ContentView.swift */; };
+		23E5C7FCA079298EB583BF52 /* PostgresDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6053D936008A16E0BCB2FEDE /* PostgresDriver.swift */; };
+		2A2A82A56235062A3BA7C027 /* doc_db.icns in Resources */ = {isa = PBXBuildFile; fileRef = 5F62B7D5E061A2B84453124A /* doc_db.icns */; };
+		2E670F101800331A0082CE4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8EE538823D6699CD82DE815 /* Assets.xcassets */; };
+		60EFF3AB6E9908B4675A6A47 /* SQLiteDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B45830678973FB153B29190 /* SQLiteDriver.swift */; };
+		70F7F9B9E0D2C13D535BF041 /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = BA90C079F12D1528D305D066 /* AppIcon.icon */; };
+		72CB6FED418DF8799AF99B23 /* ConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C51F3109F1CCDE7CFC21163 /* ConnectionView.swift */; };
+		840A3C7A6F0D3D7DD6FD290C /* SQLStatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08081D8C56ED7C270BCC2535 /* SQLStatusBar.swift */; };
+		8CC37A8CAB60D32AEC2280D1 /* DatabaseDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FADC0559027AD2CDF2D05 /* DatabaseDriver.swift */; };
+		B187ABD9AFCC304F41B57E06 /* doc_sql.icns in Resources */ = {isa = PBXBuildFile; fileRef = 63F2A7C87B3412448483D8AC /* doc_sql.icns */; };
+		B4594D9DDBC7820D25D86FF8 /* SQLHighlighter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823960475DABFDB5359B1CC9 /* SQLHighlighter.swift */; };
+		DD87624E490F6CD898768C21 /* TinySQLApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E15CB1D59E5B8C06B2875CB /* TinySQLApp.swift */; };
+		E71960E24A20558AFE8BA5BE /* TinyKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6C9488062FCDB4ED26D72405 /* TinyKit */; };
+		EE2242C2E33BC7D4B69D70BB /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9730F4EE8DDEE1294181D8B /* AppState.swift */; };
+		F0CA7A94AFF5E2540F696A2B /* PostgresNIO in Frameworks */ = {isa = PBXBuildFile; productRef = E81E854881A63C577EBB8D2C /* PostgresNIO */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		08081D8C56ED7C270BCC2535 /* SQLStatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLStatusBar.swift; sourceTree = "<group>"; };
+		1C51F3109F1CCDE7CFC21163 /* ConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionView.swift; sourceTree = "<group>"; };
+		1E15CB1D59E5B8C06B2875CB /* TinySQLApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinySQLApp.swift; sourceTree = "<group>"; };
+		23D596E3C17E898EF66EDFF2 /* TinySQL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinySQL.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		47B12E3C36B600986D4A0182 /* SQLFileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLFileView.swift; sourceTree = "<group>"; };
+		5F62B7D5E061A2B84453124A /* doc_db.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = doc_db.icns; sourceTree = "<group>"; };
+		6053D936008A16E0BCB2FEDE /* PostgresDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostgresDriver.swift; sourceTree = "<group>"; };
+		63F2A7C87B3412448483D8AC /* doc_sql.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = doc_sql.icns; sourceTree = "<group>"; };
+		6B45830678973FB153B29190 /* SQLiteDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteDriver.swift; sourceTree = "<group>"; };
+		823960475DABFDB5359B1CC9 /* SQLHighlighter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLHighlighter.swift; sourceTree = "<group>"; };
+		8E0FADC0559027AD2CDF2D05 /* DatabaseDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseDriver.swift; sourceTree = "<group>"; };
+		A73A978D02206AC1B1C87581 /* TinyKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = TinyKit; path = Packages/TinyKit; sourceTree = SOURCE_ROOT; };
+		BA90C079F12D1528D305D066 /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = wrapper.icon; path = AppIcon.icon; sourceTree = "<group>"; };
+		BFB5DB5485932151DEF8D377 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CAB0371748310DB4E4E8C2CA /* TablePreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablePreviewView.swift; sourceTree = "<group>"; };
+		D8EE538823D6699CD82DE815 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D9730F4EE8DDEE1294181D8B /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		D9C5D170A81CBF0CFE5710F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		DB75842042F81532C4075270 /* TableListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableListView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		89B99EA28D072DB212462073 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E71960E24A20558AFE8BA5BE /* TinyKit in Frameworks */,
+				F0CA7A94AFF5E2540F696A2B /* PostgresNIO in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4BD85A0679E36C99E6ECD7FA /* TinySQL */ = {
+			isa = PBXGroup;
+			children = (
+				D9730F4EE8DDEE1294181D8B /* AppState.swift */,
+				1C51F3109F1CCDE7CFC21163 /* ConnectionView.swift */,
+				BFB5DB5485932151DEF8D377 /* ContentView.swift */,
+				8E0FADC0559027AD2CDF2D05 /* DatabaseDriver.swift */,
+				D9C5D170A81CBF0CFE5710F3 /* Info.plist */,
+				6053D936008A16E0BCB2FEDE /* PostgresDriver.swift */,
+				47B12E3C36B600986D4A0182 /* SQLFileView.swift */,
+				823960475DABFDB5359B1CC9 /* SQLHighlighter.swift */,
+				6B45830678973FB153B29190 /* SQLiteDriver.swift */,
+				08081D8C56ED7C270BCC2535 /* SQLStatusBar.swift */,
+				DB75842042F81532C4075270 /* TableListView.swift */,
+				CAB0371748310DB4E4E8C2CA /* TablePreviewView.swift */,
+				1E15CB1D59E5B8C06B2875CB /* TinySQLApp.swift */,
+			);
+			name = TinySQL;
+			path = Sources/TinySQL;
+			sourceTree = "<group>";
+		};
+		AA52212582A12B9EEA4250A6 /* DocIcons */ = {
+			isa = PBXGroup;
+			children = (
+				5F62B7D5E061A2B84453124A /* doc_db.icns */,
+				63F2A7C87B3412448483D8AC /* doc_sql.icns */,
+			);
+			name = DocIcons;
+			path = Sources/TinySQL/Resources/DocIcons;
+			sourceTree = "<group>";
+		};
+		BC9BDB8B152E68073796087E = {
+			isa = PBXGroup;
+			children = (
+				AA52212582A12B9EEA4250A6 /* DocIcons */,
+				E8B6999BADE20981B99B0086 /* Packages */,
+				BFFDF1AEBC775211A0DD22AD /* Resources */,
+				4BD85A0679E36C99E6ECD7FA /* TinySQL */,
+				FA73027EFBEB0FF3AEE4CAEB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BFFDF1AEBC775211A0DD22AD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BA90C079F12D1528D305D066 /* AppIcon.icon */,
+				D8EE538823D6699CD82DE815 /* Assets.xcassets */,
+			);
+			name = Resources;
+			path = Sources/TinySQL/Resources;
+			sourceTree = "<group>";
+		};
+		E8B6999BADE20981B99B0086 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				A73A978D02206AC1B1C87581 /* TinyKit */,
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
+		FA73027EFBEB0FF3AEE4CAEB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				23D596E3C17E898EF66EDFF2 /* TinySQL.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ED863F97AA360793E49C3871 /* TinySQL */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 778E6C8D99F0EE0AE1F21953 /* Build configuration list for PBXNativeTarget "TinySQL" */;
+			buildPhases = (
+				0A94830ACA5D54E40D771908 /* Sources */,
+				37624DA1C12BBC100D08CA8A /* Resources */,
+				89B99EA28D072DB212462073 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TinySQL;
+			packageProductDependencies = (
+				6C9488062FCDB4ED26D72405 /* TinyKit */,
+				E81E854881A63C577EBB8D2C /* PostgresNIO */,
+			);
+			productName = TinySQL;
+			productReference = 23D596E3C17E898EF66EDFF2 /* TinySQL.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		817DFCC2627603B2E9281712 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					ED863F97AA360793E49C3871 = {
+						DevelopmentTeam = 992N457T8D;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 8F490D8216E1E34AEFD262FE /* Build configuration list for PBXProject "TinySQL" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = BC9BDB8B152E68073796087E;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				B79AEC3F48B9BB183DBA64B1 /* XCRemoteSwiftPackageReference "postgres-nio" */,
+				915208AAEFD0BDC14758538B /* XCLocalSwiftPackageReference "Packages/TinyKit" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = FA73027EFBEB0FF3AEE4CAEB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ED863F97AA360793E49C3871 /* TinySQL */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		37624DA1C12BBC100D08CA8A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70F7F9B9E0D2C13D535BF041 /* AppIcon.icon in Resources */,
+				2E670F101800331A0082CE4D /* Assets.xcassets in Resources */,
+				2A2A82A56235062A3BA7C027 /* doc_db.icns in Resources */,
+				B187ABD9AFCC304F41B57E06 /* doc_sql.icns in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0A94830ACA5D54E40D771908 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE2242C2E33BC7D4B69D70BB /* AppState.swift in Sources */,
+				72CB6FED418DF8799AF99B23 /* ConnectionView.swift in Sources */,
+				1D8C3F6BFBE365D6CB2F0301 /* ContentView.swift in Sources */,
+				8CC37A8CAB60D32AEC2280D1 /* DatabaseDriver.swift in Sources */,
+				23E5C7FCA079298EB583BF52 /* PostgresDriver.swift in Sources */,
+				0A2DA96178823FF9F236ABA6 /* SQLFileView.swift in Sources */,
+				B4594D9DDBC7820D25D86FF8 /* SQLHighlighter.swift in Sources */,
+				840A3C7A6F0D3D7DD6FD290C /* SQLStatusBar.swift in Sources */,
+				60EFF3AB6E9908B4675A6A47 /* SQLiteDriver.swift in Sources */,
+				08508821CD781E6B036AFBFF /* TableListView.swift in Sources */,
+				1BFB575670748FD5EFB2EFB6 /* TablePreviewView.swift in Sources */,
+				DD87624E490F6CD898768C21 /* TinySQLApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		00CD1CA9FD6EF8C7B67650AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		2DF8985448F27ABE90E8ED4A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		987578E5B9FF31F027F3B1A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = TinySQL.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = 992N457T8D;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = Sources/TinySQL/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = /Applications;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tinysql.app;
+				PRODUCT_NAME = TinySQL;
+				SDKROOT = macosx;
+				SKIP_INSTALL = NO;
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+		B40CA1FE3252E77A15C52D6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = TinySQL.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = 992N457T8D;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = Sources/TinySQL/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = /Applications;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tinysql.app;
+				PRODUCT_NAME = TinySQL;
+				SDKROOT = macosx;
+				SKIP_INSTALL = NO;
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		778E6C8D99F0EE0AE1F21953 /* Build configuration list for PBXNativeTarget "TinySQL" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B40CA1FE3252E77A15C52D6D /* Debug */,
+				987578E5B9FF31F027F3B1A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		8F490D8216E1E34AEFD262FE /* Build configuration list for PBXProject "TinySQL" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00CD1CA9FD6EF8C7B67650AE /* Debug */,
+				2DF8985448F27ABE90E8ED4A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		915208AAEFD0BDC14758538B /* XCLocalSwiftPackageReference "Packages/TinyKit" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/TinyKit;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B79AEC3F48B9BB183DBA64B1 /* XCRemoteSwiftPackageReference "postgres-nio" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/vapor/postgres-nio.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.21.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6C9488062FCDB4ED26D72405 /* TinyKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TinyKit;
+		};
+		E81E854881A63C577EBB8D2C /* PostgresNIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B79AEC3F48B9BB183DBA64B1 /* XCRemoteSwiftPackageReference "postgres-nio" */;
+			productName = PostgresNIO;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 817DFCC2627603B2E9281712 /* Project object */;
+}

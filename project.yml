@@ -70,3 +70,9 @@ targets:
         product: TinyKit
       - package: postgres-nio
         product: PostgresNIO
+
+schemes:
+  TinySQL:
+    build:
+      targets:
+        TinySQL: all
