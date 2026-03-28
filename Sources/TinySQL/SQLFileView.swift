@@ -3,6 +3,7 @@ import TinyKit
 
 struct SQLFileView: View {
     @Bindable var state: AppState
+    var editorBridge: EditorBridge
     @State private var wordWrap = true
     @State private var fontSize = 14.0
     @State private var showLineNumbers = true
@@ -41,7 +42,8 @@ struct SQLFileView: View {
                 highlighterProvider: { SQLHighlighter() },
                 commentStyle: .init(prefix: "-- ", suffix: ""),
                 scrollBridge: scrollBridge,
-                isEditable: false
+                isEditable: false,
+                editorBridge: editorBridge
             )
         }
     }

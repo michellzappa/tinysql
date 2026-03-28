@@ -209,8 +209,6 @@ final class AppState {
     }
 
     func openSQLFile(_ url: URL) {
-        let accessing = url.startAccessingSecurityScopedResource()
-        defer { if accessing { url.stopAccessingSecurityScopedResource() } }
         do {
             queryText = try String(contentsOf: url, encoding: .utf8)
         } catch {
@@ -253,5 +251,37 @@ final class AppState {
         if let path = UserDefaults.standard.string(forKey: "lastSQLitePath") {
             sqliteFilePath = path
         }
+    }
+
+    var aiDocument: String {
+        if let sqlFilePath, !queryText.isEmpty {
+            return "SQL file: \((sqlFilePath as NSString).lastPathComponent)\n\n\(queryText)"
+        }
+
+        if isConnected {
+            var sections: [String] = []
+            sections.append("Connection: \(connectionDisplayName)")
+
+            if !tables.isEmpty {
+                sections.append("Tables:\n\(tables.joined(separator: ", "))")
+            }
+
+            if let selectedTable {
+                sections.append("Selected table: \(selectedTable)")
+            }
+
+            if !columns.isEmpty {
+                sections.append("Columns:\n\(columns.joined(separator: ", "))")
+            }
+
+            if !rows.isEmpty {
+                let previewRows = rows.prefix(20).map { $0.joined(separator: "\t") }
+                sections.append("Preview rows:\n\(previewRows.joined(separator: "\n"))")
+            }
+
+            return sections.joined(separator: "\n\n")
+        }
+
+        return ""
     }
 }

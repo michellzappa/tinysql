@@ -1,0 +1,17 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - name: Build TinySQL
+        run: xcodebuild clean build -project TinySQL.xcodeproj -scheme TinySQL -configuration Release -derivedDataPath /tmp/tinybuild/tinysql CODE_SIGN_IDENTITY="-"

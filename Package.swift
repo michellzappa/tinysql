@@ -5,7 +5,7 @@ let package = Package(
     name: "TinySQL",
     platforms: [.macOS(.v26)],
     dependencies: [
-        .package(path: "../Packages/TinyKit"),
+        .package(path: "Packages/TinyKit"),
         .package(url: "https://github.com/vapor/postgres-nio.git", from: "1.21.0"),
     ],
     targets: [

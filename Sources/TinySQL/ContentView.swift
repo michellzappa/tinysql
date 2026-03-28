@@ -1,9 +1,13 @@
 import SwiftUI
+import AppKit
 import TinyKit
 
 struct ContentView: View {
     @Bindable var state: AppState
     @Binding var columnVisibility: NavigationSplitViewVisibility
+    @State private var eventMonitor: Any?
+    @State private var aiState = AIState()
+    @State private var editorBridge = EditorBridge()
 
     var body: some View {
         NavigationSplitView(columnVisibility: $columnVisibility) {
@@ -39,7 +43,7 @@ struct ContentView: View {
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
                     }
                 } else if state.sqlFilePath != nil {
-                    SQLFileView(state: state)
+                    SQLFileView(state: state, editorBridge: editorBridge)
                 } else {
                     ConnectionView(state: state)
                 }
@@ -60,6 +64,36 @@ struct ContentView: View {
                     .padding(.vertical, 6)
                     .background(.red.opacity(0.08))
                 }
+            }
+            .modifier(CmdKOverlay(
+                aiState: aiState,
+                editorBridge: editorBridge,
+                content: state.aiDocument,
+                fileExtension: state.sqlFilePath != nil ? "sql" : "txt"
+            ))
+        }
+        .onDisappear {
+            if let monitor = eventMonitor {
+                NSEvent.removeMonitor(monitor)
+                eventMonitor = nil
+            }
+        }
+        .onAppear {
+            eventMonitor = NSEvent.addLocalMonitorForEvents(matching: .keyDown) { event in
+                let flags = event.modifierFlags.intersection(.deviceIndependentFlagsMask)
+                let chars = event.charactersIgnoringModifiers ?? ""
+
+                if flags == .command && chars == "k" {
+                    aiState.activate(
+                        selection: state.sqlFilePath != nil ? editorBridge.currentSelection : "",
+                        range: state.sqlFilePath != nil ? editorBridge.currentSelectedRange : NSRange(location: 0, length: 0),
+                        bridge: state.sqlFilePath != nil ? editorBridge : nil,
+                        supportedExtensions: []
+                    )
+                    return nil
+                }
+
+                return event
             }
         }
     }

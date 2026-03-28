@@ -12,7 +12,7 @@
 - **Content Rights**: Does not contain third-party content
 - **Age Rating**: 4+
 
-## Version 1.0.0
+## Version 1.1.0
 
 ### Description (4000 chars max)
 
@@ -41,9 +41,9 @@ Part of TinySuite — a family of native macOS micro-tools that each do one thin
 
 postgresql,database,sql,browser,table,viewer,developer,postgres,tinysuite,query
 
-### What's New (Version 1.0.0)
+### What's New (Version 1.1.0)
 
-Initial release.
+Added on-device Cmd+K AI support for SQL files and table previews, plus shared bookmark and file-watcher fixes.
 
 ### Promotional Text (170 chars max, can be updated without review)
 
