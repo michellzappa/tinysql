@@ -30,6 +30,8 @@ targets:
       path: Sources/TinySQL/Info.plist
       properties:
         LSApplicationCategoryType: public.app-category.developer-tools
+        CFBundleShortVersionString: "$(MARKETING_VERSION)"
+        CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
         CFBundleDocumentTypes:
           - CFBundleTypeName: SQLite Database
             CFBundleTypeRole: Viewer
