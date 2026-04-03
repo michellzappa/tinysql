@@ -29,6 +29,8 @@ A native macOS PostgreSQL browser. Pick a table, see its rows in a sortable grid
 ## Build
 
 ```bash
+xcodegen generate --spec project.yml
+
 xcodebuild clean build \
   -project TinySQL.xcodeproj \
   -scheme TinySQL \
@@ -36,7 +38,9 @@ xcodebuild clean build \
   -derivedDataPath /tmp/tinybuild/tinysql \
   CODE_SIGN_IDENTITY="-"
 
+rm -rf /Applications/TinySQL.app
 cp -R /tmp/tinybuild/tinysql/Build/Products/Release/TinySQL.app /Applications/
+xattr -cr /Applications/TinySQL.app
 ```
 
 ## Keyboard Shortcuts
