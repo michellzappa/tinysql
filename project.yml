@@ -2,7 +2,7 @@ name: TinySQL
 options:
   bundleIdPrefix: com.tinysql
   deploymentTarget:
-    macOS: "15.0"
+    macOS: "26.0"
   xcodeVersion: "16.0"
 
 packages:
@@ -59,7 +59,7 @@ targets:
         INFOPLIST_KEY_LSApplicationCategoryType: "public.app-category.developer-tools"
         INFOPLIST_KEY_NSHumanReadableCopyright: ""
         SWIFT_VERSION: "5.9"
-        MACOSX_DEPLOYMENT_TARGET: "15.0"
+        MACOSX_DEPLOYMENT_TARGET: "26.0"
         DEVELOPMENT_TEAM: 992N457T8D
         CODE_SIGN_STYLE: Automatic
         CODE_SIGN_IDENTITY: "Apple Development"
@@ -72,9 +72,24 @@ targets:
         product: TinyKit
       - package: postgres-nio
         product: PostgresNIO
+  TinySQLUITests:
+    type: bundle.ui-testing
+    platform: macOS
+    sources:
+      - path: UITests/TinySQLUITests
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.tinysql.app.uitests
+        TEST_TARGET_NAME: TinySQL
+        GENERATE_INFOPLIST_FILE: YES
+    dependencies:
+      - target: TinySQL
 
 schemes:
   TinySQL:
     build:
       targets:
         TinySQL: all
+    test:
+      targets:
+        - name: TinySQLUITests

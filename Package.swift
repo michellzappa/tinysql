@@ -16,7 +16,12 @@ let package = Package(
                 .product(name: "PostgresNIO", package: "postgres-nio"),
             ],
             path: "Sources/TinySQL",
-            exclude: ["Resources"],
+            exclude: ["Resources", "Info.plist"],
+            swiftSettings: [.swiftLanguageMode(.v5)]
+        ),
+        .testTarget(
+            name: "TinySQLTests",
+            dependencies: ["TinySQL"],
             swiftSettings: [.swiftLanguageMode(.v5)]
         ),
     ]

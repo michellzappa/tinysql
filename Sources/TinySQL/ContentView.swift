@@ -9,6 +9,17 @@ struct ContentView: View {
     @State private var aiState = AIState()
     @State private var editorBridge = EditorBridge()
 
+    private var uiSmokeStatus: String {
+        if state.isConnected {
+            let table = state.selectedTable ?? "none"
+            return "\(state.connectionDisplayName) table:\(table) rows:\(state.rows.count)"
+        }
+        if let path = state.sqlFilePath {
+            return "\((path as NSString).lastPathComponent) sql"
+        }
+        return "disconnected"
+    }
+
     var body: some View {
         NavigationSplitView(columnVisibility: $columnVisibility) {
             if state.isConnected {
@@ -71,6 +82,9 @@ struct ContentView: View {
                 content: state.aiDocument,
                 fileExtension: state.sqlFilePath != nil ? "sql" : "txt"
             ))
+        }
+        .overlay(alignment: .bottomTrailing) {
+            TinyUITestProbe(text: uiSmokeStatus)
         }
         .onDisappear {
             if let monitor = eventMonitor {

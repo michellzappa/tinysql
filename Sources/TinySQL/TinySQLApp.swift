@@ -26,7 +26,9 @@ struct TinySQLApp: App {
                 }())
                 .frame(minWidth: 700, minHeight: 500)
                 .onAppear {
-                    if let file = TinyAppDelegate.pendingFiles.first {
+                    if let fixture = TinyRuntime.fixtureURL {
+                        openFile(fixture)
+                    } else if let file = TinyAppDelegate.pendingFiles.first {
                         TinyAppDelegate.pendingFiles.removeAll()
                         openFile(file)
                     } else {

@@ -49,10 +49,14 @@ final class AppState {
     // Internal
     private let eventLoopGroup: MultiThreadedEventLoopGroup
     private let postgresDriver: PostgresDriver
+    private let injectedDriver: (any DatabaseDriver)?
     private var sqliteDriver: SQLiteDriver?
 
     /// The currently active driver.
     private var activeDriver: (any DatabaseDriver)? {
+        if let injectedDriver {
+            return injectedDriver
+        }
         switch connectionType {
         case .postgres: return postgresDriver
         case .sqlite: return sqliteDriver
@@ -67,10 +71,11 @@ final class AppState {
         }
     }
 
-    init() {
+    init(testDriver: (any DatabaseDriver)? = nil) {
         let elg = MultiThreadedEventLoopGroup(numberOfThreads: 1)
         self.eventLoopGroup = elg
         self.postgresDriver = PostgresDriver(eventLoopGroup: elg)
+        self.injectedDriver = testDriver
     }
 
     deinit {
@@ -195,7 +200,7 @@ final class AppState {
 
     // MARK: - Persistence
 
-    private func saveLastConnection() {
+    func saveLastConnection() {
         UserDefaults.standard.set(connectionType.rawValue, forKey: "lastConnectionType")
         switch connectionType {
         case .postgres:
